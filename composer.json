@@ -1,11 +1,16 @@
 {
-    "name": "herzult/forum-bundle",
+    "name": "code28/forum-bundle",
     "description": "A simple Symfony forum bundle.",
     "keywords": ["symfony", "forum"],
-    "homepage": "https://github.com/Herzult/HerzultForumBundle.git",
+    "homepage": "https://github.com/code28/ForumBundle.git",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
+        {
+            "name": "Simon Kempendorf",
+            "email": "git@code28.de",
+            "homepage": "https://github.com/code28"
+        },
         {
             "name": "Antoine Hérault",
             "email": "antoine.herault@gmail.com",
