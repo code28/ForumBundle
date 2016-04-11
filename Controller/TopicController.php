@@ -48,6 +48,15 @@ class TopicController extends Controller
         $this->get('herzult_forum.blamer.post')->blame($topic->getFirstPost());
 
         $objectManager = $this->get('herzult_forum.object_manager');
+
+        $newSlug = $topic->getSlug();
+        do {
+            $slugExists = $this->get('herzult_forum.repository.topic')->findOneByCategoryAndSlug($category, $newSlug.(isset($appendix) ? '-'.$appendix : ''));
+            $appendix = isset($appendix) ? $appendix+1 : 1;
+        } while (!is_null($slugExists));
+        $newSlug = $appendix > 1 ? $newSlug.'-'.($appendix-1) : $newSlug;
+        $topic->setSlug($newSlug);
+
         $objectManager->persist($topic);
         $objectManager->persist($topic->getFirstPost());
         $objectManager->flush();
